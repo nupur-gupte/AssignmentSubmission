@@ -1,0 +1,20 @@
+{
+"student": {
+	"name": {
+		"firstName":"Nupur",
+		"lastName":"Gupte"
+	},
+	"age":21,
+	"address":{
+		"house":"Ganesh Bhuvan",
+		"area":"Panchpada",
+		"city":"Thane",
+		"state":"Maharashtra",
+		"country":"India"
+	},
+	"uid":2019140027,
+	"sem":7,
+	"dept":"IT",
+	"college":"SPIT"
+}
+}

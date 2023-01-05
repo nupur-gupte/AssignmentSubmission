@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student>
+	<name>
+		<fname>Nupur</fname>
+		<lname>Gupte</lname>
+	</name>
+	<age>21</age>
+	<address>
+		<house>Ganesh Bhuvan</house>
+		<area>Panchpada</area>
+		<city>Thane</city>
+		<state>Maharashtra</state>
+		<country>India</country>
+	</address>
+	<uid>2019140027</uid>
+	<sem>7</sem>
+	<dept>Information Technology</dept>
+	<college>Sardar Patel Institute of Technology</college>
+</student>
