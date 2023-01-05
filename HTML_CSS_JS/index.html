@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>forms</title>
+	<style>
+		* {
+		  box-sizing: border-box;
+		  font-style: sans-serif;
+		  font-size: 20;
+		  font-weight: 700;
+		}
+		#per{
+			background-color: #9deefc;
+		}
+		#acc{
+			background-color: #f7a8ab;
+		}
+		#doc{
+			background-color: #f7e2a8;
+		}
+
+		input[type=text], input[type=email],input[type=password], select, textarea {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  resize: vertical;
+		}
+
+		label {
+		  padding: 12px 12px 12px 0;
+		  display: inline-block;
+		}
+
+		input[type=submit] {
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		  float: right;
+		}
+
+		input[type=submit]:hover {
+		  background-color: #45a049;
+		}
+
+		.container {
+		  border-radius: 5px;
+		  background-color: #f2f2f2;
+		  padding: 20px;
+		}
+
+		.col-25 {
+		  float: left;
+		  width: 25%;
+		  margin-top: 6px;
+		}
+
+		.col-75 {
+		  float: left;
+		  width: 75%;
+		  margin-top: 6px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+		@media screen and (max-width: 600px) {
+		  .col-25, .col-75, input[type=submit] {
+		    width: 100%;
+		    margin-top: 0;
+		  }
+		}
+	</style>
+</head>
+<body>
+	<form action="success.html" onsubmit="return validate()">
+		<fieldset id="per">
+			<legend>Personal Information</legend>
+			<label>Full Name:</label>
+			<select id="prefix" name="prefix">
+			  <option value="mr">Mr.</option>
+			  <option value="mrs">Mrs.</option>
+			  <option value="miss">Miss</option>
+			  <option value="kumar">Kumar</option>
+			  <option value="kumari">Kumari</option>
+			</select>
+	  		<input type="text" id="fname" name="fname" placeholder="First Name" required>
+	  		<input type="text" id="mname" name="mname" placeholder="Middle Name">
+	  		<input type="text" id="lname" name="lname" placeholder="Last Name" required><br><br>
+	  		<label for="dob">Date of Birth</label>
+	  		<input type="date" id="dob" name="dob" required><br>
+	  		<p>Select your gender</p>
+	  		<input type="radio" id="male" name="gender" value="male">
+		  	<label for="Male">Male</label><br>
+		  	<input type="radio" id="female" name="gender" value="female">
+		  	<label for="female">Female</label><br>
+		  	<input type="radio" id="other" name="gender" value="other">
+		  	<label for="other">Other</label><br>
+		</fieldset>
+		<br>
+		<fieldset id="acc">
+			<legend>Account details</legend>
+			<label for="email">Enter your email:</label>
+	  		<input type="email" id="email" name="email" required><br><br>
+		  	<label for="username">Username:</label>
+	  		<input type="text" id="username" name="username" required><br><br>
+	  		<label for="pwd">Password:</label>
+	  		<input type="password" id="pwd" name="pwd" required><br><br>
+	  		<label for="cpwd">Confirm Password:</label>
+	  		<input type="password" id="cpwd" name="cpwd" required><br><br>
+	  		<label for="myfile">Upload photo: </label>
+	  		<input type="file" id="myfile" name="myfile">
+		</fieldset>
+	  	<br>
+	  	<fieldset id="doc">
+	  		<legend>Documents</legend>
+	  		<p>Select the documents your are going to submit</p>
+	  		<input type="checkbox" id="aadhar" name="aadhar" value="Aadhar">
+		  	<label for="aadhar">Aadhar Card</label><br>
+		  	<input type="checkbox" id="pan" name="pan" value="PAN">
+		  	<label for="pan">PAN Card</label><br>
+		  	<input type="checkbox" id="election" name="election" value="election">
+		  	<label for="election">Election Card</label><br>
+		  	<input type="checkbox" id="ssc" name="ssc" value="ssc">
+		  	<label for="ssc">SSC Markshhet</label><br>
+		  	<input type="checkbox" id="hsc" name="hsc" value="hsc">
+		  	<label for="hsc">HSC Marksheet</label><br>
+		  	<input type="checkbox" id="grad" name="grad" value="grad">
+		  	<label for="grad">Graduation Marksheet</label><br>
+	  	</fieldset>
+	  	<input type="submit">
+	</form>
+	<script type="text/javascript">
+		function validate() {
+			var today=new Date();
+			var birthDay=document.getElementById("dob").value;
+			birthDay=new Date(birthDay);
+			if(birthDay>=today)//checks if dob is valid
+			{
+				alert("Enter a valid dob");
+				return false;
+			}
+			else if(document.getElementById('pwd').value.length<8){//password length check
+				alert("Password should have atleast 8 characters");
+				return false;
+			}
+			else if(document.getElementById('pwd').value!=document.getElementById('cpwd').value){//checks if password and confirm password are same or not
+				alert("Password and Confirm password not same");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+	</script>
+
+</body>
+</html>
